@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Roboto+Mono:wght@400;500;600&display=swap');
 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     margin: 0;
     padding: 0;
@@ -8,12 +13,9 @@
 body,
 html {
     box-sizing: border-box;
-    @apply bg-def_dark_purple text-def_text_primary
+    position: relative;
+    @apply bg-def_dark_purple text-def_white
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 
 @layer components {}
@@ -44,7 +46,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-def_text_second;
+    @apply bg-def_blue_gray_light;
     border-radius: 4px;
 }
 
