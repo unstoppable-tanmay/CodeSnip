@@ -8,6 +8,8 @@ import { AiFillInstagram } from "react-icons/ai";
 import { RiWhatsappFill } from "react-icons/ri";
 import { MdFileDownload } from "react-icons/md";
 import { ImEmbed2 } from "react-icons/im";
+import Image from "next/image";
+import { getImage } from "@/src/lib/profileIconArray";
 
 const Profile = ({
   setClose,
@@ -18,26 +20,32 @@ const Profile = ({
     <div className="create_snippet_wrapper w-[550px] relative max-w-[85vw] flex flex-col gap-5 p-4 md:p-6 bg-def_blue_gray_light rounded-[10px]">
       {/* Close Button */}
       <div
-        className="cross_btn absolute top-3 right-0 translate-x-[100%] rounded-r-full bg-def_rose flex items-center justify-center px-1 md:px-2 py-1 cursor-pointer"
+        className="cross_btn absolute top-3 right-0 translate-x-[85%] hover:translate-x-[100%] duration-200 rounded-r-full bg-def_rose flex items-center justify-center px-1 md:px-2 py-1 cursor-pointer -z-10"
         onClick={(e) => setClose(false)}
       >
         <IoClose />
       </div>
 
-      {/* Download Button */}
-      <div className="cross_btn absolute bottom-3 right-0 translate-x-[100%] rounded-r-full bg-def_white/20 flex items-center justify-center px-1 md:px-2 py-1 cursor-pointer">
-        <MdFileDownload />
-      </div>
-
       {/* Embed Button */}
-      <div className="cross_btn absolute bottom-14 right-0 translate-x-[100%] rounded-r-full bg-def_white/20 flex items-center justify-center px-1 md:px-2 py-1 cursor-pointer">
+      <div className="cross_btn absolute bottom-5 right-0 translate-x-[85%] hover:translate-x-[100%] duration-200 rounded-r-full bg-def_white/10 flex items-center justify-center px-1 md:px-2 py-1 cursor-pointer -z-10">
         <ImEmbed2 />
       </div>
+
+      {/* Download Button */}
+      {/* <div className="cross_btn absolute bottom-14 right-0 translate-x-[100%] rounded-r-full bg-def_white/20 flex items-center justify-center px-1 md:px-2 py-1 cursor-pointer">
+        <MdFileDownload />
+      </div> */}
 
       <div className="CoverImage w-full h-[18vh] rounded-[10px] bg-black"></div>
       <div className="profileDetails w-full flex flex-wrap gap-y-3 items-center justify-between">
         <div className="details flex gap-3 items-center">
-          <div className="profileImg w-[40px] h-[40px] rounded-full bg-black"></div>
+          {/* Profile Image */}
+          <label
+            htmlFor="profileImage"
+            className="profileImg h-9 aspect-square rounded-[10px] bg-transparent relative cursor-pointer"
+          >
+            <Image alt="" fill src={getImage("deadpool")} />
+          </label>
           <div className="nameDetails flex flex-col">
             <div className="name font-bold">Tanmay</div>
             <div className="connections text-white/40 text-[10px] font-FiraMono">

@@ -12,7 +12,7 @@ const Home = () => {
   const [profile, setProfile] = useState(false);
   const [createProfile, setCreateProfile] = useState(false);
   return (
-    <div className="Home relative w-screen h-screen flex items-center justify-start flex-col gap-10">
+    <div className="Home relative w-screen h-screen flex items-center justify-start flex-col gap-10 py-10">
       <Dialog isOpen={createSnippet} setOpen={setCreateSnippet}>
         <CreateSnippet setClose={setCreateSnippet} />
       </Dialog>
@@ -24,14 +24,28 @@ const Home = () => {
       </Dialog>
 
       <div className="flex gap-4">
-        <button className=" p-2" onClick={(e) => setCreateSnippet(true)}>
-          Open-Post
+        <button
+          onClick={(e) => setCreateSnippet(true)}
+          className="px-2 font-FiraMono py-1 rounded-[5px] relative bg-def_blue_gray_dark text-white text-sm hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-slate-600 group"
+        >
+          <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-2xl bg-gradient-to-r from-transparent via-teal-500 to-transparent group-hover:w-full duration-300" />
+          <span className="relative z-20">Open-Create-Post</span>
         </button>
-        <button className=" p-2" onClick={(e) => setProfile(true)}>
-          Open-Profile
+
+        <button
+          onClick={(e) => setProfile(true)}
+          className="px-2 font-FiraMono py-1 rounded-[5px] relative bg-def_blue_gray_dark text-white text-sm hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-slate-600 group"
+        >
+          <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-2xl bg-gradient-to-r from-transparent via-teal-500 to-transparent group-hover:w-full duration-300" />
+          <span className="relative z-20">Open-Profile</span>
         </button>
-        <button className=" p-2" onClick={(e) => setCreateProfile(true)}>
-          Open-Create-Profile
+
+        <button
+          onClick={(e) => setCreateProfile(true)}
+          className="px-2 font-FiraMono py-1 rounded-[5px] relative bg-def_blue_gray_dark text-white text-sm hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-slate-600 group"
+        >
+          <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-2xl bg-gradient-to-r from-transparent via-teal-500 to-transparent group-hover:w-full duration-300" />
+          <span className="relative z-20">Open-Create-Profile</span>
         </button>
       </div>
 
