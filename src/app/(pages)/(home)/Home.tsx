@@ -55,35 +55,53 @@ const Home = () => {
           userDesignation="Full Stack Developer"
           userProfileImage="deadpool"
           fileName="hello.js"
-          codeData={`// lets have a joke \nconst bestFriend = 'Tanmay';\nvar girlFriend = '______';\n\n\n\n`}
+          codeData={`var life = "journey";
+var coding = "adventure";
+          
+for (var days = 1; days <= infinity; days++) {
+    console.log(coding);
+    // Embrace the challenges and let each lincode be a step forward in your journey.
+    // Keep coding, keep iterating, forpossibilities are endless.
+    // Your life loop should always include a bicoding magic.
+    // Happy coding every day!
+    // ...
+}
+          `}
           language="javascript"
         />
         <Post
           userName="Tanmay"
-          userDesignation="Full Stack Developer"
+          userDesignation="Software Developer"
           userProfileImage="ironman"
           fileName="hello.js"
-          codeData={`// lets have a joke \nconst bestFriend = 'Tanmay';\nvar girlFriend = '______';`}
-          language="javascript"
+          codeData={`// code = codesnip`}
+          language="typescript"
         />
         <Post
           userName="Jeet"
           userDesignation="Full Stack Developer"
           userProfileImage="hulk"
           fileName="hello.js"
-          codeData={`// lets have a joke \nconst bestFriend = 'Tanmay';\nvar girlFriend = '______';`}
+          codeData={`<Post
+  userName="Tanmay"
+  userDesignation="Software Developer"
+  userProfileImage="ironman"
+  fileName="hello.js"
+  codeData={\`// code = codesnip\`}
+  language="typescript"
+/>`}
           language="javascript"
         />
         <Post
-          userName="Jeet Mandu"
-          userDesignation="Full Stack Developer"
+          userName="Sanmati"
+          userDesignation="UI/UX Designer"
           userProfileImage="captainmarvel"
           fileName="hello.js"
           codeData={`// lets have a joke \nconst bestFriend = 'Tanmay';\nvar girlFriend = '______';`}
           language="javascript"
         />
         <Post
-          userName="Kia Mu Janini"
+          userName="Idk"
           userDesignation="Full Stack Developer"
           userProfileImage="batman"
           fileName="hello.js"
