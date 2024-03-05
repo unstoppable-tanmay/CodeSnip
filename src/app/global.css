@@ -23,6 +23,7 @@ html {
 /* Scroll Bar  */
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 
@@ -36,6 +37,11 @@ html {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
   }
+  
+    .scrollbar-thumb-dark::-webkit-scrollbar-thumb {
+        @apply bg-def_blue_gray_light;
+        border-radius: 4px;
+    }
 }
 
 
@@ -53,6 +59,8 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     @apply bg-opacity-70
 }
+
+::-webkit-scrollbar-corner { background: transparent }
 
 
 /* Editing The Snippet Component */

@@ -3,6 +3,8 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { Editor, Monaco } from "@monaco-editor/react";
 import { IoClose } from "react-icons/io5";
+import Chips from "../SmallComponents/Chips.comp";
+import { findMostMatchingWord } from "@/src/lib/createProfileHelper";
 
 const CreateSnippet = ({
   setClose,
@@ -14,6 +16,9 @@ const CreateSnippet = ({
   );
   const [fileName, setFileName] = useState("file_name");
   const [fileExt, setFileExt] = useState("js");
+
+  const [tags, setTags] = useState<string[]>([]);
+  const [tagsSearch, setTagsSearch] = useState<string>();
 
   const handleEditorDidMount = (monaco: Monaco) => {
     monaco?.editor.defineTheme("my-theme", {
@@ -108,21 +113,72 @@ const CreateSnippet = ({
       {/* Language Choose */}
       <div className="language flex w-full items-center justify-between ">
         <div className="heading font-medium mb-1">Language</div>
-        <select className="bg-def_blue_gray_light text-xs rounded-md text-def_white p-2 font-FiraMono outline-none border-none appearance-none px-4 flex items-center justify-center">
-          <option value="" selected>
+        <select className="bg-def_blue_gray_dark text-xs rounded-[5px] text-def_white p-2 font-FiraMono outline-none border-none appearance-none px-4 flex items-center justify-center">
+          <option value="Javascript" defaultValue={"javascript"}>
             Javascript
           </option>
-          <option value="">C++</option>
-          <option value="">C</option>
-          <option value="">Css</option>
-          <option value="">Typescript</option>
-          <option value="">Rust</option>
+          <option value="C++">C++</option>
+          <option value="C">C</option>
+          <option value="Css">Css</option>
+          <option value="Typescript">Typescript</option>
+          <option value="Rust">Rust</option>
         </select>
       </div>
 
       {/* Add Tags */}
-      <div className="tags flex e-full rounded-[5px] bg-def_blue_gray_dark min-h-[7ch] text-xs p-2 text-def_white text-opacity-30 font-FiraMono font-medium">
-        Add Tags
+      <div className="talksAbout flex flex-col gap-2 scrollbar-thumb-dark">
+        <div className="name font-bold text-sm font-FiraMono text-def_white/90">
+          Add Tags
+        </div>
+        <label
+          htmlFor="talksAbout"
+          className="addTalksAbout w-full h-[60px] rounded-[7px] bg-def_blue_gray_dark resize-none p-2 outline-none text-xs relative flex gap-2 flex-wrap overflow-y-scroll cursor-text"
+        >
+          {tags.map((ele, ind) => {
+            return <Chips size="sm" bg="bg-white" text={ele} key={ind} />;
+          })}
+          <div className="inputWrapper relative">
+            <input
+              id="talksAbout"
+              placeholder="click enter to add"
+              className="bg-transparent outline-none flex-1 self-start font-FiraMono capitalize w-full"
+              value={tagsSearch}
+              onChange={(e) => {
+                setTagsSearch(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  setTags((e) => [
+                    ...e,
+                    "#" +
+                      tagsSearch?.slice(0, 1).toUpperCase() +
+                      tagsSearch?.slice(1),
+                  ]);
+                  setTagsSearch("");
+                } else if (e.key == "Backspace" && tagsSearch == "")
+                  setTags((e) => e.slice(0, e.length - 1));
+                else if (e.key == "Tab" && tagsSearch) {
+                  e.preventDefault();
+                  setTags((e) => [
+                    ...e,
+                    "#" + findMostMatchingWord(tagsSearch),
+                  ]);
+                  setTagsSearch("");
+                }
+              }}
+            ></input>
+            <div className="shadowedWord absolute top-0 left-0 font-FiraMono text-white/30 max-w-full">
+              {tagsSearch}
+              {tagsSearch &&
+                findMostMatchingWord(tagsSearch || "")
+                  .toString()
+                  .split("")
+                  .splice(tagsSearch.length)
+                  .join("")}
+            </div>
+          </div>
+          <div className="flex flex-col absolute"></div>
+        </label>
       </div>
 
       {/* Post Snippets */}

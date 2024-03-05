@@ -16,15 +16,19 @@ const Dialog = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="dialog-overlay w-full h-full flex items-center justify-center fixed"
+          className="dialog-overlay w-full h-full flex items-center justify-center fixed z-[200]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onWheel={(e) => e.stopPropagation()}
         >
-          <div
+          <motion.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="blurLayer w-full h-full absolute backdrop-blur-md"
             onClick={(e) => setOpen(false)}
-          ></div>
+          ></motion.div>
           <motion.div
             className="dialog-content"
             initial={{ scale: 0.5, opacity: 0, translateY: "100%" }}
