@@ -93,11 +93,11 @@ for (var days = 1; days <= infinity; days++) {
           language="javascript"
         />
         <Post
-          userName="Sanmati"
+          userName="Sachin"
           userDesignation="UI/UX Designer"
-          userProfileImage="captainmarvel"
+          userProfileImage="groot"
           fileName="hello.js"
-          codeData={`// lets have a joke \nconst bestFriend = 'Tanmay';\nvar girlFriend = '______';`}
+          codeData={`// lets have a joke \nconst bestFriend = '________';\nvar girlFriend = '______';`}
           language="javascript"
         />
         <Post
